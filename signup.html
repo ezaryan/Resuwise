@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up - ResuWise</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to right, #004d00, #66ff66); /* Gradient background */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh; /* Full viewport height */
+            margin: 0;
+            color: #333; /* Default text color */
+        }
+
+        .signup-container {
+            background-color: #ffffff; /* White background for the form */
+            padding: 20px;
+            border-radius: 8px; /* Rounded corners */
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+            width: 300px; /* Fixed width for the form */
+            text-align: center; /* Center text */
+        }
+
+        .signup-container h2 {
+            margin-bottom: 20px; /* Space below the heading */
+            color: #004d00; /* Dark green color */
+        }
+
+        .signup-container input[type="text"],
+        .signup-container input[type="password"],
+        .signup-container input[type="email"] {
+            width: 100%; /* Full width */
+            padding: 10px; /* Padding inside the input */
+            margin: 10px 0; /* Space above and below inputs */
+            border: 1px solid #ccc; /* Light border */
+            border-radius: 4px; /* Rounded corners */
+            transition: border-color 0.3s; /* Smooth transition for border color */
+        }
+
+        .signup-container input[type="text"]:focus,
+        .signup-container input[type="password"]:focus,
+        .signup-container input[type="email"]:focus {
+            border-color: #004d00; /* Change border color on focus */
+            outline: none; /* Remove default outline */
+        }
+
+        .signup-container button {
+            background-color: #004d00; /* Dark green background */
+            color: white; /* White text */
+            border: none; /* No border */
+            padding: 10px; /* Padding inside the button */
+            border-radius: 4px; /* Rounded corners */
+            cursor: pointer; /* Pointer cursor on hover */
+            width: 100%; /* Full width */
+            transition: background-color 0.3s; /* Smooth transition for background color */
+        }
+
+        .signup-container button:hover {
+            background-color: #003300; /* Darker green on hover */
+        }
+
+        .signup-container p {
+            margin-top: 15px; /* Space above the paragraph */
+            color: #666; /* Gray color for the text */
+        }
+
+        .signup-container a {
+            color: #004d00; /* Dark green color for links */
+            text-decoration: none; /* Remove underline */
+        }
+
+        .signup-container a:hover {
+            text-decoration: underline; /* Underline on hover */
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 480px) {
+            .signup-container {
+                width: 90%; /* Full width on small screens */
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="signup-container">
+        <h2>Create an Account</h2>
+        <form id="signupForm">
+            <input type="text" id="username" placeholder="Username" required>
+            <input type="email" id="email" placeholder="Email" required>
+            <input type="password" id="password" placeholder="Password" required>
+            <button type="submit">Sign Up</button>
+        </form>
+        <p>Already have an account? <a href="login.html">Log In</a></p> <!-- Link to Sign-In page -->
+        <p id="message" style="color: red;"></p> <!-- Message display -->
+    </div>
+
+    <script>
+        // Basic form submission handling
+        document.getElementById('signupForm').addEventListener('submit', async function(event) {
+            event.preventDefault(); // Prevent the default form submission
+            const username = document.getElementById('username').value;
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+
+            // Prepare the data to be sent to the server
+            const userData = {
+                username: username,
+                email: email,
+                password: password
+            };
+
+            try {
+                const response = await fetch('http://localhost:5000/signup', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(userData)
+                });
+
+                const result = await response.json();
+                document.getElementById('message').innerText = result.message || result.error; // Display success or error message
+
+                if (response.ok) {
+                    // Optionally redirect to login page or clear the form
+                    setTimeout(() => {
+                        window.location.href = 'login.html'; // Redirect to login page after successful signup
+                    }, 2000); // Redirect after 2 seconds
+                }
+            } catch (error) {
+                document.getElementById('message').innerText = 'Error: ' + error.message; // Display error message
+            }
+        });
+    </script>
+</body>
+</html>

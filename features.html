@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css"> <!-- Updated path to styles.css -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> <!-- Font Awesome -->
+    <title>Features - ResuWise</title>
+    <style>
+        /* Dropdown styles */
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #f1f1f1;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        /* Fade-in animation */
+        body {
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+        }
+
+        body.loaded {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <h1>✍️ ResuWise</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+                    <li><a href="features.html"><i class="fas fa-cogs"></i> Features</a></li>
+                    <li><a href="faqs.html"><i class="fas fa-question-circle"></i> FAQs</a></li>
+                    <li><a href="templates.html"><i class="fas fa-file-alt"></i> Templates</a></li>
+                    <li class="dropdown">
+                        <a href="javascript:void(0)"><i class="fas fa-user-circle"></i> Login</a>
+                        <div class="dropdown-content">
+                            <a href="profile.html">My Profile</a>
+                            <a href="login.html">Login</a>
+                            <a href="signup.html">Signup</a>
+                        </div>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section id="features" class="features">
+        <h2>Our Features</h2>
+        <div class="feature-list">
+            <div class="feature-item">
+                <img src="https://th.bing.com/th/id/OIP.t3cYLlG_QInxFfhyqu9zKgHaJ4?rs=1&pid=ImgDetMain" alt="Customizable Templates">
+                <h3>Customizable Templates</h3>
+                <p>Choose from a variety of templates tailored to your profession. Our templates are designed to be ATS-friendly and visually appealing.</p>
+            </div>
+            <div class="feature-item">
+                <img src="https://th.bing.com/th/id/OIP.Wpw74mCCi2xPGACpPk_xLwAAAA?rs=1&pid=ImgDetMain" alt="Real-Time Edits">
+                <h3>Real-Time Edits</h3>
+                <p>Make changes and see updates instantly. Our platform allows you to edit your resume in real-time, ensuring you get the perfect look.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2025 ResuWise. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        window.addEventListener('load', function() {
+            document.body.classList.add('loaded');
+        });
+    </script>
+
+</html>

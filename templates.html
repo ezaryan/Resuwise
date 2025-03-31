@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> <!-- Font Awesome -->
+    <title>Templates - ResuWise</title>
+    <style>
+        /* Dropdown styles */
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #f1f1f1;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <h1>✍️ ResuWise</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+                    <li><a href="features.html"><i class="fas fa-cogs"></i> Features</a></li>
+                    <li><a href="faqs.html"><i class="fas fa-question-circle"></i> FAQs</a></li>
+                    <li class="active"><a href="templates.html"><i class="fas fa-file-alt"></i> Templates</a></li>
+                    <li class="dropdown">
+                        <a href="javascript:void(0)"><i class="fas fa-user-circle"></i> Login</a>
+                        <div class="dropdown-content">
+                            <a href="profile.html">My Profile</a>
+                            <a href="login.html">Login</a>
+                            <a href="signup.html">Signup</a>
+                        </div>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section id="templates" class="templates">
+        <h2>Our Resume Templates</h2>
+        <p>Explore our collection of professional resume templates designed to help you stand out.</p>
+        <div class="template-preview">
+            <div class="template-item">
+                <img src="https://cdn-images.zety.com/pages/modern_resume_templates_009.jpg" alt="Modern Professional Resume Template" width="500">
+                <h3>Modern Professional</h3>
+                <p>A clean and modern design suitable for any profession.</p>
+            </div>
+            <div class="template-item">
+                <img src="https://th.bing.com/th/id/OIP.dhCW7g0Hjamaa_AH0-M0JAHaKq?rs=1&pid=ImgDetMain" alt="Classic Style Resume Template" width="300">
+                <h3>Classic Style</h3>
+                <p>A timeless design that emphasizes professionalism.</p>
+            </div>
+            <div class="template-item">
+                <img src="https://resumeinventor.com/wp-content/uploads/edd/2021/03/01_Clean-Professional-Creative-and-Modern-Resume-CV-Curriculum-Vitae-Design-Template-MS-Word-Apple-Pages-PSD-Free-Download-18-2.jpg" alt="Creative Design Resume Template" width="300">
+                <h3>Creative Design</h3>
+                <p>A visually appealing template for creative professionals.</p>
+            </div>
+            <div class="template-item">
+                <img src="https://marketplace.canva.com/EADapIUg5_k/1/0/1236w/canva-white-and-pastel-teal-minimalist-resume-cUopeWPOE6Q.jpg" alt="Minimalist Approach Resume Template" width="300">
+                <h3>Minimalist Approach</h3>
+                <p>A simple and elegant template for a clean look.</p>
+ </div>
+ <div class="template-item">
+    <img src="https://th.bing.com/th/id/OIP.UMwVXx4-s7IFM54KKXFf0wAAAA?rs=1&pid=ImgDetMain" alt="ATS Friendly Resume Template" width="300">
+    <h3>ATS Friendly</h3>
+    <p>Designed to pass through Applicant Tracking Systems.</p>
+</div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2025 ResuWise. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> <!-- Font Awesome -->
+    <title>ResuWise - Professional Resume Services</title>
+    <style>
+        /* Dropdown styles */
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #f1f1f1;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        /* Typing effect styles */
+        .typing {
+            display: inline-block;
+            border-right: 2px solid;
+            white-space: nowrap;
+            overflow: hidden;
+            animation: blink-caret 0.75s step-end infinite;
+        }
+
+        @keyframes blink-caret {
+            from, to { border-color: transparent; }
+            50% { border-color: black; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <h1>✍️ ResuWise</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="features.html"><i class="fas fa-cogs"></i> Features</a></li>
+                    <li><a href="faqs.html"><i class="fas fa-question-circle"></i> FAQs</a></li>
+                    <li><a href="templates.html"><i class="fas fa-file-alt"></i> Templates</a></li>
+                    <li class="dropdown">
+                        <a href="javascript:void(0)"><i class="fas fa-user-circle"></i> Login</a>
+                        <div class="dropdown-content">
+                            <a href="profile.html">My Profile</a>
+                            <a href="login.html">Login</a>
+                            <a href="signup.html">Signup</a>
+                        </div>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section id="hero" class="hero">
+        <div class="hero-overlay">
+            <div class="hero-content">
+                <h2 id="typingText"></h2>
+                <p>Professional resume writing services to help you stand out.</p>
+                <br>
+                <a href="login.html" class="cta-button">Get Started</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="features" class="features">
+        <h2>Features</h2>
+        <div class="feature-list">
+            <div class="feature-item">
+                <img src="https://th.bing.com/th/id/OIP.t3cYLlG_QInxFfhyqu9zKgHaJ4?rs=1&pid=ImgDetMain" alt="Customizable Templates">
+                <h3>Customizable Templates</h3>
+                <p>Choose from a variety of templates tailored to your profession.</p>
+            </div>
+            <div class="feature-item">
+                <img src="https://th.bing.com/th/id/OIP.Wpw74mCCi2xPGACpPk_xLwAAAA?rs=1&pid=ImgDetMain" alt="Real-Time Edits">
+                <h3>Real-Time Edits</h3>
+                <p>Make changes and see updates instantly.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="faqs" class="faqs">
+        <h2>FAQs</h2>
+        <div class="faq-item">
+            <h3>What services do you offer?</h3>
+            <p>We provide professional resume writing which is ATS friendly and can be edited anytime.</p>
+        </div>
+        <div class="faq-item">
+            <h3>How do I get started?</h3>
+            <p>Simply sign up and choose a template to begin crafting your resume.</p>
+        </div>
+    </section>
+
+    <section id="templates" class="templates">
+        <h2>Templates</h2>
+        <p>Explore our collection of professional resume templates.</p>
+        <div class="template-preview">
+            <img src="https://tse2.mm.bing.net/th?id=OIP.eLn5ywLU_aNI8AAWjrpHRAHaFj&pid=Api" alt="ATS Friendly Resume Template">
+            <img src="https://tse2.mm.bing.net/th?id=OIP.Zk7iWKVZa_2-aaai_0CuMAHaJo&pid=Api" alt="Professional ATS Resume">
+            <img src="https://tse2.mm.bing.net/th?id=OIP.T7WjvlXNrcWDwpkFD4xSkgHaF7&pid=Api" alt="ATS Optimized Resume Template">
+            <img src="https://tse3.mm.bing.net/th?id=OIP.E_CJzKrZ9CFn3e5Rc3NjEQHaLH&pid=Api" alt="Applicant Tracking System Friendly Resume">
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2025 ResuWise. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        const textToType = "Your Career Starts Here";
+        const typingTextElement = document.getElementById("typingText");
+        let index = 0;
+
+        function typeText() {
+            if (index < textToType.length) {
+                typingTextElement.textContent += textToType.charAt(index);
+                index++;
+                setTimeout(typeText, 100); // Adjust typing speed here (100ms)
+            } else {
+                // Loop the typing effect
+                setTimeout(() => {
+                    typingTextElement.textContent = ""; // Clear text
+ index = 0; // Reset index
+                    typeText(); // Start typing again
+                }, 2000); // Pause before restarting (2000ms)
+            }
+        }
+
+        // Start the typing effect
+        typeText();
+    </script>
+</body>
+</html>

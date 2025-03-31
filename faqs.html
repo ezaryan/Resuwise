@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css"> <!-- Update path to styles.css -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> <!-- Font Awesome -->
+    <title>FAQs - ResuWise</title>
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 20px;
+            opacity: 0; /* Initially hidden */
+            transition: opacity 0.5s ease-in-out; /* Transition for fade-in */
+        }
+        body.loaded {
+            opacity: 1; /* Fully visible */
+        }
+        header {
+            background: #4CAF50;
+            color: white;
+            padding: 10px 0;
+        }
+        .container {
+            max-width: 1200px;
+            margin: auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        nav ul {
+            list-style: none;
+            padding: 0;
+        }
+        nav ul li {
+            display: inline;
+            margin: 0 15px;
+        }
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+        }
+        .faqs {
+            max-width: 600px;
+            margin: auto;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+        }
+        .faq-item {
+            border-bottom: 1px solid #ccc;
+            padding: 10px 0;
+        }
+        .faq-question {
+            display: flex;
+            justify-content: space-between;
+            cursor: pointer;
+            font-weight: bold;
+            color: #333;
+        }
+        .faq-answer {
+            margin-top: 5px;
+            color: #555;
+            max-height: 0; /* Initially hidden */
+            overflow: hidden; /* Prevent overflow */
+            opacity: 0; /* Initially transparent */
+            transition: max-height 0.5s ease, opacity 0.5s ease; /* Transition for max-height and opacity */
+        }
+        .faq-answer.show {
+            max-height: 200px; /* Set a max height for the expanded state */
+            opacity: 1; /* Fully visible */
+        }
+        .arrow {
+            font-size: 18px;
+            transition: transform 0.2s;
+        }
+        footer {
+            text-align: center;
+            margin-top: 20px;
+            padding: 10px 0;
+            background: #4CAF50;
+            color: white;
+        }
+        /* Dropdown styles */
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #f1f1f1;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <h1>✍️ ResuWise</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+                    <li><a href="features.html"><i class ="fas fa-cogs"></i> Features</a></li>
+                    <li><a href="templates.html"><i class="fas fa-file-alt"></i> Templates</a></li>
+                    <li><a href="faqs.html"><i class="fas fa-question-circle"></i> FAQs</a></li>
+                    <li class="dropdown">
+                        <a href="javascript:void(0)"><i class="fas fa-user-circle"></i> Login</a>
+                        <div class="dropdown-content">
+                            <a href="profile.html">My Profile</a>
+                            <a href="login.html">Login</a>
+                            <a href="signup.html">Signup</a>
+                        </div>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section id="faqs" class="faqs">
+        <h2>Frequently Asked Questions</h2>
+        <div class="faq-item">
+            <div class="faq-question" onclick="toggleAnswer('answer1')">
+                <span>1. What is ResuWise?</span>
+                <span class="arrow" id="arrow1">➕</span>
+            </div>
+            <div class="faq-answer" id="answer1">
+                <p>ResuWise is an online platform that helps you create professional resumes and cover letters easily, even if you have no prior experience.</p>
+            </div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-question" onclick="toggleAnswer('answer2')">
+                <span>2. How do I get started?</span>
+                <span class="arrow" id="arrow2">➕</span>
+            </div>
+            <div class="faq-answer" id="answer2">
+                <p>Simply sign up for an account, choose a template, and start filling in your information. Our user-friendly interface will guide you through the process.</p>
+            </div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-question" onclick="toggleAnswer('answer3')">
+                <span>3. Are the templates customizable?</span>
+                <span class="arrow" id="arrow3">➕</span>
+            </div>
+            <div class="faq-answer" id="answer3">
+                <p>Yes! All our templates are fully customizable. You can change the text, colors, and layout to suit your personal style.</p>
+            </div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-question" onclick="toggleAnswer('answer4')">
+                <span>4. Can I download my resume?</span>
+                <span class="arrow" id="arrow4">➕</span>
+            </div>
+            <div class="faq-answer" id="answer4">
+                <p>Absolutely! Once you have completed your resume, you can download it in various formats, including PDF and Word.</p>
+            </div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-question" onclick="toggleAnswer('answer5')">
+                <span>5. Is there a cost to use ResuWise?</span>
+                <span class="arrow" id="arrow5">➕</span>
+            </div>
+            <div class="faq-answer" id="answer5">
+                <p>ResuWise offers both free and premium templates. You can start with free templates and upgrade to premium options if you wish.</p>
+            </div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-question" onclick="toggleAnswer('answer6')">
+                <span>6. How do I create a cover letter?</span>
+                <span class="arrow" id="arrow6">➕</span>
+            </div>
+            <div class="faq-answer" id="answer6">
+                <p>After creating your resume, you can use our cover letter tool to generate a personalized cover letter that complements your resume.</p>
+            </div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-question" onclick="toggleAnswer('answer7')">
+                <span>7. Can I edit my resume after downloading it?</span>
+                <span class="arrow" id="arrow7">➕</span>
+            </div>
+            <div class="faq-answer" id="answer7">
+                <p>Yes, you can edit your resume anytime on our platform. Just log in to your account, make the changes, and download the updated version.</p>
+            </div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-question" onclick="toggleAnswer('answer8')">
+                <span>8. What if I need help while using the platform?</span>
+                <span class="arrow" id="arrow8">➕</span>
+            </div>
+            <div class="faq-answer" id="answer8">
+                <p>If you need assistance, you can check our help section or contact our support team for guidance.</p>
+            </div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-question" onclick="toggleAnswer('answer9')">
+                <span>9. Are the resumes ATS-friendly?</span>
+                <span class="arrow" id="arrow9">➕</span>
+            </div>
+            <div class="faq-answer" id="answer9">
+                <p>Yes, all our templates are designed to be ATS-friendly, ensuring that your resume passes through Applicant Tracking Systems used by employers.</p>
+            </div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-question" onclick="toggleAnswer('answer10')">
+                <span>10. Can I share my resume online?</span>
+                <span class="arrow" id="arrow10">➕</span>
+            </div>
+            <div class="faq-answer" id="answer10">
+                <p>Yes, you can share your resume online via email or social media directly from our platform.</p>
+            </div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-question" onclick="toggleAnswer('answer11')">
+                <span>11. Do you offer tips for writing a resume?</span>
+                <span class="arrow" id="arrow11">➕</span>
+            </div>
+            <div class="faq-answer" id="answer11">
+                <p>Yes! We provide tips and best practices throughout the resume creation process to help you craft a compelling resume.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2025 ResuWise. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        function toggleAnswer(answerId) {
+            const answer = document.getElementById(answerId);
+            const arrow = document.getElementById('arrow' + answerId.charAt(answerId.length - 1));
+            
+            if (answer.classList.contains('show')) {
+                answer.classList.remove('show');
+                arrow.innerHTML = "➕"; // Change back to plus sign
+            } else {
+                answer.classList.add('show');
+                arrow.innerHTML = "➖"; // Change to minus sign
+            }
+        }
+
+        window.addEventListener('load', function() {
+            document.body.classList.add('loaded');
+        });
+    </script>
+</body>
+</html>
