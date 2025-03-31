@@ -1,0 +1,45 @@
+.resume-container {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.resume-container h1 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.resume-container h2 {
+    font-size: 18px;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+.resume-container img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin: 20px auto;
+    display: block;
+}
+
+.resume-container ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.resume-container li {
+    margin-bottom: 10px;
+}
+
+.resume-container li::before {
+    content: "\2022";
+    font-weight: bold;
+    font-size: 18px;
+    color: #004d00;
+    margin-right: 10px;
+}

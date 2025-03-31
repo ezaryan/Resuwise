@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume Display - ResuWise</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Link to your CSS file -->
+</head>
+<body>
+    <div class="resume-container">
+        <h1 id="fullName"></h1>
+        <h2 id="contactInfo"></h2>
+        <img id="profileImage" src="" alt="Profile Image">
+
+        <h3>Education</h3>
+        <ul id="educationList"></ul>
+
+        <h3>Work Experience</h3>
+        <ul id="workExperienceList"></ul>
+
+        <h3>Skills</h3>
+        <ul id="skillsList"></ul>
+    </div>
+
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const fullName = urlParams.get('fullName');
+        const phone = urlParams.get('phone');
+        const email = urlParams.get('email');
+        const linkedin = urlParams.get('linkedin');
+        const address = urlParams.get('address');
+        const profileImage = urlParams.get('profileImage');
+        const school10 = urlParams.get('school10');
+        const graduationDate10 = urlParams.get('graduationDate10');
+        const school12 = urlParams.get('school12');
+        const graduationDate12 = urlParams.get('graduationDate12');
+        const degree = urlParams.get('degree');
+        const collegeName = urlParams.get('collegeName');
+        const graduationDateDegree = urlParams.get('graduationDateDegree');
+        const otherDegree = urlParams.get('otherDegree');
+        const otherCollege = urlParams.get('otherCollege');
+        const graduationDateOther = urlParams.get('graduationDateOther');
+        const jobTitle = urlParams.get('jobTitle');
+        const companyName = urlParams.get('companyName');
+        const jobDuration = urlParams.get('jobDuration');
+        const skills = urlParams.get('skills');
+
+        document.getElementById('fullName').innerText = fullName;
+        document.getElementById('contactInfo').innerText = `Phone: ${phone} | Email: ${email} | LinkedIn: ${linkedin} | Address: ${address}`;
+        document.getElementById('profileImage').src = profileImage;
+
+        const educationList = document.getElementById('educationList');
+        educationList.innerHTML += `<li>10th Grade: ${school10}, Graduation Date: ${graduationDate10}</li>`;
+        educationList.innerHTML += `<li>12th Grade: ${school12}, Graduation Date: ${graduationDate12}</li>`;
+        educationList.innerHTML += `<li>Graduation Degree: ${degree}, College Name: ${collegeName}, Graduation Date: ${graduationDateDegree}</li>`;
+        if (otherDegree) {
+            educationList.innerHTML += `<li>Other Degree: ${otherDegree}, College/University Name: ${otherCollege}, Graduation Date: ${graduationDateOther}</li>`;
+        }
+
+        const workExperienceList = document.getElementById('workExperienceList');
+        workExperienceList.innerHTML += `<li>Job Title: ${jobTitle}, Company Name: ${companyName}, Duration: ${jobDuration}</li>`;
+
+        const skillsList = document.getElementById('skillsList');
+        skillsList.innerHTML += `<li>${skills}</li>`;
+    </script>
+</body>
+</html>
